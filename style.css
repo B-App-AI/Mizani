@@ -101,8 +101,9 @@ body {
 
 .top-bar {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 1.5rem;
 }
 
@@ -115,9 +116,6 @@ body {
     font-size: 1.5rem;
 }
 
-.search-container {
-    width: 100%;
-}
 
 .search-container input {
     width: 100%;
