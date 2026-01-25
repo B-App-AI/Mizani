@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,30 +11,16 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <div class="app-container">
-        <!-- Sidebar / Navigation -->
-        <aside class="sidebar">
-            <div class="logo">
-                <i class="fas fa-wallet"></i>
-                <h1>ميزاني</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li class="active" data-section="overview"><i class="fas fa-chart-pie"></i> نظرة عامة</li>
-                    <li data-section="fixed-categories"><i class="fas fa-list-ul"></i> الأقسام الأساسية</li>
-                    <li data-section="custom-categories"><i class="fas fa-plus-circle"></i> أقسام مخصصة</li>
-                    <li data-section="lessons"><i class="fas fa-graduation-cap"></i> قسم الدروس</li>
-                </ul>
-            </nav>
-            <div class="sidebar-footer">
-                <p>جميع الحقوق محفوظة &copy; 2026</p>
-            </div>
-        </aside>
-
         <!-- Main Content -->
         <main class="main-content">
             <header class="top-bar">
+                <div class="logo-mobile">
+                    <i class="fas fa-wallet"></i>
+                    <span>ميزاني</span>
+                </div>
                 <div class="search-container">
                     <input type="text" placeholder="بحث...">
                     <i class="fas fa-search"></i>
@@ -108,7 +95,8 @@
 
                 <div class="flex-header">
                     <h3>أقسام مخصصة</h3>
-                    <button id="add-custom-category-btn" class="btn btn-secondary"><i class="fas fa-plus"></i> إضافة قسم</button>
+                    <button id="add-custom-category-btn" class="btn btn-secondary"><i class="fas fa-plus"></i> إضافة
+                        قسم</button>
                 </div>
                 <div id="custom-categories-list" class="grid-cards">
                     <!-- Cards will be injected by JS -->
@@ -119,7 +107,8 @@
             <section id="lessons-section" class="card shadow">
                 <div class="card-header">
                     <h2><i class="fas fa-graduation-cap"></i> قسم الدروس (اختياري)</h2>
-                    <button id="add-student-btn" class="btn btn-secondary">إضافة طالب <i class="fas fa-user-plus"></i></button>
+                    <button id="add-student-btn" class="btn btn-secondary">إضافة طالب <i
+                            class="fas fa-user-plus"></i></button>
                 </div>
                 <div id="students-list" class="students-grid">
                     <!-- Students will be injected by JS -->
@@ -130,6 +119,26 @@
                 </div>
             </section>
         </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <div class="nav-item active" data-section="overview">
+                <i class="fas fa-chart-pie"></i>
+                <span>الرئيسية</span>
+            </div>
+            <div class="nav-item" data-section="fixed-categories">
+                <i class="fas fa-list-ul"></i>
+                <span>الأقسام</span>
+            </div>
+            <div class="nav-item" data-section="custom-categories">
+                <i class="fas fa-plus-circle"></i>
+                <span>مخصص</span>
+            </div>
+            <div class="nav-item" data-section="lessons">
+                <i class="fas fa-graduation-cap"></i>
+                <span>دروس</span>
+            </div>
+        </nav>
     </div>
 
     <!-- Modals -->
@@ -203,4 +212,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

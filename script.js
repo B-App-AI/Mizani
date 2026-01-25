@@ -47,10 +47,10 @@ document.addEventListener('DOMContentLoaded', () => {
 function setCurrentDate() {
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     document.getElementById('current-date').innerText = new Date().toLocaleDateString('ar-EG', options);
-    // Sidebar navigation
-    document.querySelectorAll('.sidebar nav li').forEach(li => {
+    // Bottom navigation
+    document.querySelectorAll('.nav-item').forEach(li => {
         li.addEventListener('click', () => {
-            document.querySelector('.sidebar nav li.active').classList.remove('active');
+            document.querySelector('.nav-item.active').classList.remove('active');
             li.classList.add('active');
 
             const sectionId = li.getAttribute('data-section');
