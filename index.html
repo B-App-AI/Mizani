@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ميزاني | إدارة الميزانية الذكية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar / Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-wallet"></i>
+                <h1>ميزاني</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active" data-section="overview"><i class="fas fa-chart-pie"></i> نظرة عامة</li>
+                    <li data-section="fixed-categories"><i class="fas fa-list-ul"></i> الأقسام الأساسية</li>
+                    <li data-section="custom-categories"><i class="fas fa-plus-circle"></i> أقسام مخصصة</li>
+                    <li data-section="lessons"><i class="fas fa-graduation-cap"></i> قسم الدروس</li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <p>جميع الحقوق محفوظة &copy; 2026</p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-container">
+                    <input type="text" placeholder="بحث...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="user-profile">
+                    <span id="current-date"></span>
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+            </header>
+
+            <section id="budget-setup" class="card shadow">
+                <div class="card-header">
+                    <h2><i class="fas fa-cog"></i> إعداد الميزانية</h2>
+                </div>
+                <div class="grid-inputs">
+                    <div class="input-group">
+                        <label for="total-budget">الميزانية الكلية</label>
+                        <input type="number" id="total-budget" placeholder="0.00" min="0">
+                    </div>
+                    <div class="input-group">
+                        <label for="budget-days">عدد الأيام</label>
+                        <input type="number" id="budget-days" placeholder="30" min="1">
+                    </div>
+                    <div class="input-group">
+                        <label for="savings-goal">مبلغ التحويش (اختياري)</label>
+                        <input type="number" id="savings-goal" placeholder="0.00" min="0">
+                    </div>
+                </div>
+                <button id="save-budget" class="btn btn-primary">حفظ الإعدادات</button>
+            </section>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon income"><i class="fas fa-money-bill-wave"></i></div>
+                    <div class="stat-details">
+                        <span>الميزانية المتاحة</span>
+                        <h3 id="available-budget">0.00</h3>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon savings"><i class="fas fa-piggy-bank"></i></div>
+                    <div class="stat-details">
+                        <span>التحويش</span>
+                        <h3 id="display-savings">0.00</h3>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon daily"><i class="fas fa-clock"></i></div>
+                    <div class="stat-details">
+                        <span>الحد اليومي الكلي</span>
+                        <h3 id="total-daily-limit">0.00</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div id="savings-progress-container" class="card shadow hidden">
+                <div class="progress-info">
+                    <span>نسبة التحويش من الميزانية</span>
+                    <span id="savings-percentage">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div id="savings-progress-fill" class="progress-fill"></div>
+                </div>
+            </div>
+
+            <!-- Sections Container -->
+            <div id="categories-container" class="sections-wrapper">
+                <h3>الأقسام الأساسية</h3>
+                <div id="fixed-categories-list" class="grid-cards">
+                    <!-- Cards will be injected by JS -->
+                </div>
+
+                <div class="flex-header">
+                    <h3>أقسام مخصصة</h3>
+                    <button id="add-custom-category-btn" class="btn btn-secondary"><i class="fas fa-plus"></i> إضافة قسم</button>
+                </div>
+                <div id="custom-categories-list" class="grid-cards">
+                    <!-- Cards will be injected by JS -->
+                </div>
+            </div>
+
+            <!-- Lessons Section -->
+            <section id="lessons-section" class="card shadow">
+                <div class="card-header">
+                    <h2><i class="fas fa-graduation-cap"></i> قسم الدروس (اختياري)</h2>
+                    <button id="add-student-btn" class="btn btn-secondary">إضافة طالب <i class="fas fa-user-plus"></i></button>
+                </div>
+                <div id="students-list" class="students-grid">
+                    <!-- Students will be injected by JS -->
+                </div>
+                <div class="lessons-summary">
+                    <span>إجمالي مصروف الدروس: </span>
+                    <strong id="total-lessons-cost">0.00</strong>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="category-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title">إضافة قسم جديد</h2>
+            <form id="category-form">
+                <div class="input-group">
+                    <label>اسم القسم</label>
+                    <input type="text" id="cat-name" required>
+                </div>
+                <div class="input-group">
+                    <label>نوع التخصيص</label>
+                    <select id="cat-type">
+                        <option value="percentage">نسبة مئوية (%)</option>
+                        <option value="fixed">مبلغ محدد</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label id="cat-value-label">القيمة</label>
+                    <input type="number" id="cat-value" step="0.01" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">حفظ</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Student Modal -->
+    <div id="student-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>إضافة طالب جديد</h2>
+            <form id="student-form">
+                <div class="input-group">
+                    <label>اسم الطالب</label>
+                    <input type="text" id="student-name" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">إضافة</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Teacher Modal -->
+    <div id="teacher-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>إضافة معلم للمادة</h2>
+            <form id="teacher-form">
+                <input type="hidden" id="current-student-id">
+                <div class="input-group">
+                    <label>اسم المعلم</label>
+                    <input type="text" id="teacher-name" required>
+                </div>
+                <div class="input-group">
+                    <label>المادة</label>
+                    <input type="text" id="subject-name" required>
+                </div>
+                <div class="input-group">
+                    <label>سعر المعلم</label>
+                    <input type="number" id="teacher-price" required>
+                </div>
+                <div class="input-group">
+                    <label>سعر السنتر (اختياري)</label>
+                    <input type="number" id="center-price" value="0">
+                </div>
+                <button type="submit" class="btn btn-primary w-100">إضافة المعلم</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
