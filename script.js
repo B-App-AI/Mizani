@@ -4,11 +4,11 @@ let appState = {
     days: 30,
     savingsGoal: 0,
     fixedCategories: [
-        { id: 'food', name: 'أكل', percentage: 30, icon: 'fa-utensils' },
-        { id: 'transport', name: 'مواصلات', percentage: 20, icon: 'fa-bus' },
-        { id: 'bills', name: 'فواتير', percentage: 25, icon: 'fa-file-invoice-dollar' },
-        { id: 'shopping', name: 'تسوق', percentage: 15, icon: 'fa-shopping-bag' },
-        { id: 'entertainment', name: 'ترفيه', percentage: 10, icon: 'fa-gamepad' }
+        { id: 'food', name: 'أكل', percentage: 50, icon: 'fa-utensils' },
+        { id: 'shopping', name: 'تسوق', percentage: 20, icon: 'fa-shopping-bag' },
+        { id: 'transport', name: 'مواصلات', percentage: 10, icon: 'fa-bus' },
+        { id: 'entertainment', name: 'ترفيه', percentage: 10, icon: 'fa-gamepad' },
+        { id: 'bills', name: 'فواتير', percentage: 10, icon: 'fa-file-invoice-dollar' }
     ],
     customCategories: [],
     students: []
@@ -175,7 +175,29 @@ function loadData() {
     const saved = localStorage.getItem('mizani_state');
     if (saved) {
         const parsed = JSON.parse(saved);
-        // Merge with initial state to ensure fixed categories are always present
+
+        // Match order and percentages of fixed categories
+        const newOrder = ['food', 'shopping', 'transport', 'entertainment', 'bills'];
+        const newPercentages = {
+            'food': 50,
+            'shopping': 20,
+            'transport': 10,
+            'entertainment': 10,
+            'bills': 10
+        };
+
+        // Reconstruct fixedCategories with new order and values
+        appState.fixedCategories = newOrder.map(id => {
+            const initialCat = appState.fixedCategories.find(c => c.id === id);
+            return { ...initialCat, percentage: newPercentages[id] };
+        });
+
+        if (parsed.fixedCategories) {
+            // We ignore saved order/percentages for fixed categories to enforce new rules
+            delete parsed.fixedCategories;
+        }
+
+        // Merge with initial state
         appState = { ...appState, ...parsed };
 
         // Load values into inputs
@@ -247,10 +269,11 @@ function createCategoryCard(cat, amount, daily, isCustom = false) {
     const card = document.createElement('div');
     card.className = 'category-card';
 
-    // Alert colors if limit is low (conceptual: here we just show daily)
-    // In a real app we might track spending, but for now we highlight high daily limits
-    if (daily > 500) card.classList.add('warning');
-    if (daily > 1000) card.classList.add('danger');
+    // Alert colors if limit is low
+    if (cat.id !== 'bills') {
+        if (daily > 500) card.classList.add('warning');
+        if (daily > 1000) card.classList.add('danger');
+    }
 
     card.innerHTML = `
         <div class="header">
@@ -261,10 +284,11 @@ function createCategoryCard(cat, amount, daily, isCustom = false) {
             <span>المبلغ المخصص:</span>
             <span class="limit-value">${formatCurrency(amount)}</span>
         </div>
+        ${cat.id !== 'bills' ? `
         <div class="limit-item">
             <span>الحد اليومي:</span>
             <span class="limit-value">${formatCurrency(daily)}</span>
-        </div>
+        </div>` : ''}
         <div class="progress-container">
              <div class="progress-bar">
                 <div class="progress-fill" style="width: 100%"></div>
@@ -280,6 +304,7 @@ function renderStudents() {
         const studentCost = student.teachers.reduce((sum, t) => sum + t.price + t.center, 0);
         const card = document.createElement('div');
         card.className = 'student-card shadow';
+        card.dataset.id = student.id;
 
         let teachersHtml = '';
         student.teachers.forEach(t => {
@@ -289,33 +314,46 @@ function renderStudents() {
                     <td>${t.name}</td>
                     <td>${formatCurrency(t.price)}</td>
                     <td>${formatCurrency(t.center)}</td>
-                    <td><button onclick="deleteTeacher('${student.id}', '${t.id}')" class="btn-danger"><i class="fas fa-trash"></i></button></td>
+                    <td><button onclick="event.stopPropagation(); deleteTeacher('${student.id}', '${t.id}')" class="btn-danger"><i class="fas fa-trash"></i></button></td>
                 </tr>
             `;
         });
 
         card.innerHTML = `
             <h4>
-                <span><i class="fas fa-user-graduate"></i> ${student.name}</span>
-                <button onclick="deleteStudent('${student.id}')" class="btn-danger"><i class="fas fa-user-minus"></i> حذف الطالب</button>
+                <span><i class="fas fa-user-graduate"></i> ${student.name} <i class="fas fa-chevron-down s-icon" style="font-size:0.8rem; margin-right:5px"></i></span>
+                <button onclick="event.stopPropagation(); deleteStudent('${student.id}')" class="btn-danger"><i class="fas fa-user-minus"></i></button>
             </h4>
-            <div class="student-info">إجمالي مصروف الطالب: <strong>${formatCurrency(studentCost)}</strong></div>
-            <table class="teachers-table">
-                <thead>
-                    <tr>
-                        <th>المادة</th>
-                        <th>المعلم</th>
-                        <th>سعر المعلم</th>
-                        <th>السنتر</th>
-                        <th>إجراء</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    ${teachersHtml || '<tr><td colspan="5" style="text-align:center">لا يوجد معلمين مضافين</td></tr>'}
-                </tbody>
-            </table>
-            <button onclick="openTeacherModal('${student.id}')" class="btn btn-secondary" style="margin-top:1rem; width:100%">إضافة معلم <i class="fas fa-plus"></i></button>
+            <div class="student-content">
+                <div class="student-info" style="margin-top:1rem">إجمالي مصروف الطالب: <strong>${formatCurrency(studentCost)}</strong></div>
+                <table class="teachers-table">
+                    <thead>
+                        <tr>
+                            <th>المادة</th>
+                            <th>المعلم</th>
+                            <th>السعر</th>
+                            <th>السنتر</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${teachersHtml || '<tr><td colspan="5" style="text-align:center">لا يوجد معلمين</td></tr>'}
+                    </tbody>
+                </table>
+                <button onclick="event.stopPropagation(); openTeacherModal('${student.id}')" class="btn btn-secondary" style="margin-top:1rem; width:100%">إضافة معلم <i class="fas fa-plus"></i></button>
+            </div>
         `;
+
+        card.addEventListener('click', () => {
+            card.classList.toggle('expanded');
+            const icon = card.querySelector('.s-icon');
+            if (card.classList.contains('expanded')) {
+                icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+            } else {
+                icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+            }
+        });
+
         studentsList.appendChild(card);
     });
 }
