@@ -1,13 +1,29 @@
-// Language Dictionary (Expanded)
+// Language Dictionary (Full & Optimized)
 const translations = {
-ar: { dir: 'rtl', appTitle: 'ميزاني الذكي', budgetSetup: 'إعداد الميزانية', totalBudget: 'الميزانية', days: 'الأيام', savings: 'التحويش', currency: 'العملة', lang: 'اللغة', save: 'حفظ', available: 'الميزانية المتاحة', inc: 'دخل', exp: 'صرف', navHome: 'الرئيسية', navCats: 'الأقسام', navCalc: 'حاسبة', navCur: 'عملات', navStu: 'دروس', addCat: 'إضافة قسم', addStu: 'طالب جديد', calcTitle: 'الآلة الحاسبة', curTitle: 'أسعار العملات', clear: 'مسح', history: 'السجل', dayLimit: 'الحد اليومي', income: 'إجمالي الدخل', expense: 'إجمالي الصرف' },
-    en: { dir: 'ltr', appTitle: 'Mizani Smart', budgetSetup: 'Setup', totalBudget: 'Budget', days: 'Days', savings: 'Savings', currency: 'Currency', lang: 'Language', save: 'Save', available: 'Available', inc: 'Inc', exp: 'Exp', navHome: 'Home', navCats: 'Sections', navCalc: 'Calc', navCur: 'FX', navStu: 'Lessons', addCat: 'Add Category', addStu: 'Add Student', calcTitle: 'Calculator', curTitle: 'Rates', clear: 'Clear', history: 'History', dayLimit: 'Daily Limit', income: 'Total Income', expense: 'Total Expense' },
-    fr: { dir: 'ltr', appTitle: 'Mizani Int.', budgetSetup: 'Réglages', totalBudget: 'Budget', days: 'Jours', savings: 'Épargne', currency: 'Devise', lang: 'Langue', save: 'Sauver', available: 'Disponible', inc: 'Rev', exp: 'Dép', navHome: 'Accueil', navCats: 'Sections', navCalc: 'Calc', navCur: 'Change', navStu: 'Leçons', addCat: 'Ajouter Cat', addStu: 'Ajouter Étud', calcTitle: 'Calculatrice', curTitle: 'Taux', clear: 'Effacer', history: 'Histoire', dayLimit: 'Limite Quotidienne', income: 'Revenu Total', expense: 'Dépense Totale' },
-    it: { dir: 'ltr', appTitle: 'Mizani Intel.', budgetSetup: 'Impostazioni', totalBudget: 'Budget', days: 'Giorni', savings: 'Risparmio', currency: 'Valuta', lang: 'Lingua', save: 'Salva', available: 'Disponibile', inc: 'Ent', exp: 'Spe', navHome: 'Home', navCats: 'Sezioni', navCalc: 'Calc', navCur: 'Valuta', navStu: 'Lezioni', addCat: 'Aggiungi Cat', addStu: 'Aggiungi Stud', calcTitle: 'Calcolatrice', curTitle: 'Tassi', clear: 'Pulisci', history: 'Storico', dayLimit: 'Limite Giornaliero', income: 'Entrata Totale', expense: 'Spesa Totale' },
-    es: { dir: 'ltr', appTitle: 'Mizani Smart', budgetSetup: 'Ajustes', totalBudget: 'Presupuesto', days: 'Días', savings: 'Ahorro', currency: 'Moneda', lang: 'Idioma', save: 'Guardar', available: 'Disponible', inc: 'Ing', exp: 'Gas', navHome: 'Inicio', navCats: 'Secciones', navCalc: 'Calc', navCur: 'Divisa', navStu: 'Clases', addCat: 'Añadir Cat', addStu: 'Añadir Estud', calcTitle: 'Calculadora', curTitle: 'Tipos', clear: 'Limpiar', history: 'Historial', dayLimit: 'Límite Diario', income: 'Ingreso Total', expense: 'Gasto Total' },
-    de: { dir: 'ltr', appTitle: 'Mizani Smart', budgetSetup: 'Setup', totalBudget: 'Budget', days: 'Tage', savings: 'Ersparnis', currency: 'Währung', lang: 'Sprache', save: 'Sparen', available: 'Verfügbar', inc: 'Ein', exp: 'Aus', navHome: 'Start', navCats: 'Sektionen', navCalc: 'Rechner', navCur: 'Währung', navStu: 'Unterricht', addCat: 'Kat. Hinzufügen', addStu: 'Stud. Hinzufügen', calcTitle: 'Rechner', curTitle: 'Kurse', clear: 'Löschen', history: 'Verlauf', dayLimit: 'Tageslimit', income: 'Gesamteinkommen', expense: 'Gesamtausgaben' },
-    tr: { dir: 'ltr', appTitle: 'Mizani Akıllı', budgetSetup: 'Kurulum', totalBudget: 'Bütçe', days: 'Günler', savings: 'Tasarruf', currency: 'Para', lang: 'Dil', save: 'Kaydet', available: 'Mevcut', inc: 'Gelir', exp: 'Gider', navHome: 'Ana Sayfa', navCats: 'Bölümler', navCalc: 'Hesap', navCur: 'Kurlar', navStu: 'Dersler', addCat: 'Kat. Ekle', addStu: 'Öğrenci Ekle', calcTitle: 'Hesap Makinesi', curTitle: 'Kurlar', clear: 'Temizle', history: 'Geçmiş', dayLimit: 'Günlük Sınır', income: 'Toplam Gelir', expense: 'Toplam Gider' },
-    zh: { dir: 'ltr', appTitle: 'Mizani 智能', budgetSetup: '设置', totalBudget: '预算', days: '天数', savings: '蓄蓄', currency: '货货', lang: '语言', save: '保存', available: '可用额度', inc: '入', exp: '支', navHome: '首页', navCats: '模块', navCalc: '计算', navCur: '汇率', navStu: '课程', addCat: '加分类', addStu: '加学生', calcTitle: '计算器', curTitle: '实时汇率', clear: '清除', history: '历史', dayLimit: '每日限额', income: '总收入', expense: '总支出' }
+    ar: {
+        dir: 'rtl', locale: 'ar-EG', logo: 'ميزاني', appTitle: 'ميزاني الذكي', available: 'الميزانية المتاحة', totalBudget: 'الميزانية', days: 'الأيام', savings: 'التحويش', save: 'تحديث', income: 'الميزانية الكلية', expense: 'إجمالي الصرف', dayLimit: 'الحد اليومي', navHome: 'الرئيسية', navCats: 'الأقسام', navCalc: 'الحاسبة', navCur: 'العملات', navStu: 'الدروس', breakdown: 'توزيع الميزانية', addCat: 'إضافة قسم', addStu: 'إضافة طالب', addTeacher: 'إضافة معلم', catsTitle: 'الأقسام المتاحة', mainCats: 'الأقسام الأساسية', customCats: 'أقسامك المخصصة', add: 'إضافة', catName: 'اسم القسم', catType: 'نوع التخصيص', value: 'القيمة', percentage: 'نسبة مئوية (%)', fixedAmount: 'مبلغ محدد', studentName: 'اسم الطالب', subject: 'المادة', teacherName: 'اسم المعلم', teacherPrice: 'سعر الحصة / الشهر', centerPrice: 'مصاريف السنتر (اختياري)', alert: 'تنبيه', ok: 'حسناً، فهمت', confirmAction: 'تأكيد الإجراء', yesDelete: 'نعم، احذف', cancel: 'إلغاء', clear: 'تصفير', noHistory: 'لا يوجد سجل', converter: 'محول العملات', searchCurrency: 'ابحث عن عملة...', loadingRates: 'جاري تحميل الأسعار...', success: 'عملية ناجحة', budgetSaved: 'تم حفظ الميزانية بنجاح', catNamePlaceholder: 'مثلاً: ملابس', studentNamePlaceholder: 'مثلاً: محمد', subjectPlaceholder: 'مثلاً: رياضيات', teacherNamePlaceholder: 'مثلاً: مستر علي', lessonsTitle: 'الدروس والمدرسين', savingsPercentage: 'نسبة التحويش', allocatedAmount: 'المبلغ المخصص:', studentDeleteConfirm: 'هل أنت متأكد من حذف هذا الطالب وتفريغ كل بياناته؟', teacherDeleteConfirm: 'هل تريد حذف هذا المدرس نهائياً؟', categoryDeleteConfirm: 'هل أنت متأكد من حذف هذا القسم بشكل نهائي؟ ولن تتمكن من استعادته.', budgetShortage: 'إجمالي الميزانية لا يغطي مبلغ التحويش ومصاريف الدروس التي حددتها مسبقاً!', budgetShortageTitle: 'عجز في الميزانية', budgetExceeded: 'لقد تجاوزت الحد الاقصى المسموح به للميزانية!', budgetExceededTitle: 'عذراً لا يمكن الإضافة', insufficientBalance: 'الرصيد المتاح لا يكفي. يرجى ضبط ميزانيتك الكلية أولاً!', insufficientBalanceTitle: 'خطأ في الميزانية', housing: 'سكن وإيجار', food: 'أكل وشرب', bills: 'فواتير واشتراكات', transport: 'مواصلات', shopping: 'تسوق وشخصي', health: 'صحة وعلاج', education: 'تعليم', entertainment: 'ترفيه وتسالي', charity: 'صدقات وهدايا', debts: 'ديون وأقساط', emergency: 'طوارئ', EGP: 'جنيه مصري', USD: 'دولار أمريكي', EUR: 'يورو', SAR: 'ريال سعودي', AED: 'درهم إماراتي', KWD: 'دينار كويتي'
+    },
+    en: {
+        dir: 'ltr', locale: 'en-US', logo: 'Mizani', appTitle: 'Mizani Smart', available: 'Available Balance', totalBudget: 'Total Budget', days: 'Days', savings: 'Savings', save: 'Update', income: 'Total Budget', expense: 'Total Expenses', dayLimit: 'Daily Limit', navHome: 'Home', navCats: 'Categories', navCalc: 'Calculator', navCur: 'Currency', navStu: 'Lessons', breakdown: 'Budget Breakdown', addCat: 'Add Category', addStu: 'Add Student', addTeacher: 'Add Teacher', catsTitle: 'Available Categories', mainCats: 'Main Categories', customCats: 'Custom Categories', add: 'Add', catName: 'Category Name', catType: 'Allocation Type', value: 'Value', percentage: 'Percentage (%)', fixedAmount: 'Fixed Amount', studentName: 'Student Name', subject: 'Subject', teacherName: 'Teacher Name', teacherPrice: 'Rate / Month', centerPrice: 'Center Fees (Optional)', alert: 'Alert', ok: 'OK, Got it', confirmAction: 'Confirm Action', yesDelete: 'Yes, Delete', cancel: 'Cancel', clear: 'Clear', noHistory: 'No History', converter: 'Currency Converter', searchCurrency: 'Search currency...', loadingRates: 'Loading rates...', success: 'Success', budgetSaved: 'Budget saved successfully', catNamePlaceholder: 'e.g., Clothes', studentNamePlaceholder: 'e.g., John', subjectPlaceholder: 'e.g., Math', teacherNamePlaceholder: 'e.g., Mr. Ali', lessonsTitle: 'Lessons & Teachers', savingsPercentage: 'Savings Progress', allocatedAmount: 'Allocated Amount:', studentDeleteConfirm: 'Are you sure you want to delete this student and all their data?', teacherDeleteConfirm: 'Do you want to permanently delete this teacher?', categoryDeleteConfirm: 'Are you sure you want to permanently delete this category? This cannot be undone.', budgetShortage: 'Total budget does not cover the savings and lesson expenses you specified!', budgetShortageTitle: 'Budget Shortage', budgetExceeded: 'You have exceeded the maximum allowed budget!', budgetExceededTitle: 'Cannot Add', insufficientBalance: 'Insufficient balance. Please adjust your total budget first!', insufficientBalanceTitle: 'Budget Error', housing: 'Housing & Rent', food: 'Food & Drinks', bills: 'Bills & Subscriptions', transport: 'Transport', shopping: 'Shopping', health: 'Health & Medical', education: 'Education', entertainment: 'Entertainment', charity: 'Charity & Gifts', debts: 'Debts & Installments', emergency: 'Emergency', EGP: 'Egyptian Pound', USD: 'US Dollar', EUR: 'Euro', SAR: 'Saudi Riyal', AED: 'UAE Dirham', KWD: 'Kuwaiti Dinar'
+    },
+    fr: {
+        dir: 'ltr', locale: 'fr-FR', logo: 'Mizani', appTitle: 'Mizani Int.', available: 'Solde Disponible', totalBudget: 'Budget Total', days: 'Jours', savings: 'Épargne', save: 'Actualiser', income: 'Revenu Total', expense: 'Dépenses Totales', dayLimit: 'Limite Quotidienne', navHome: 'Accueil', navCats: 'Sections', navCalc: 'Calculatrice', navCur: 'Change', navStu: 'Leçons', breakdown: 'Répartition', addCat: 'Ajouter Cat', addStu: 'Ajouter Étud', addTeacher: 'Professeur', catsTitle: 'Catégories', mainCats: 'Essentielles', customCats: 'Personnalisées', add: 'Ajouter', catName: 'Nom', catType: 'Type', value: 'Valeur', percentage: 'Pourcentage (%)', fixedAmount: 'Montant Fixe', studentName: 'Étudiant', subject: 'Matière', teacherName: 'Nom Prof', teacherPrice: 'Tarif / Mois', centerPrice: 'Frais Centre', alert: 'Alerte', ok: 'OK', confirmAction: 'Confirmer', yesDelete: 'Oui, Supprimer', cancel: 'Annuler', clear: 'Effacer', noHistory: 'Pas d\'histoire', converter: 'Convertisseur', searchCurrency: 'Chercher...', loadingRates: 'Chargement...', success: 'Succès', budgetSaved: 'Budget enregistré', catNamePlaceholder: 'ex: Vêtements', studentNamePlaceholder: 'ex: Jean', subjectPlaceholder: 'ex: Maths', teacherNamePlaceholder: 'ex: M. Paul', lessonsTitle: 'Leçons', savingsPercentage: 'Épargne', allocatedAmount: 'Montant:', studentDeleteConfirm: 'Supprimer cet étudiant?', teacherDeleteConfirm: 'Supprimer ce professeur?', categoryDeleteConfirm: 'Supprimer cette catégorie?', budgetShortage: 'Budget insuffisant!', budgetShortageTitle: 'Déficit', budgetExceeded: 'Budget dépassé!', budgetExceededTitle: 'Erreur', insufficientBalance: 'Solde insuffisant!', insufficientBalanceTitle: 'Budget', housing: 'Logement', food: 'Alimentation', bills: 'Factures', transport: 'Transport', shopping: 'Shopping', health: 'Santé', education: 'Éducation', entertainment: 'Loisirs', charity: 'Cadeaux', debts: 'Dettes', emergency: 'Urgence', EGP: 'Livre Égyptienne', USD: 'Dollar US', EUR: 'Euro', SAR: 'Riyal Saoudien', AED: 'Dirham UAE', KWD: 'Dinar Koweïtien'
+    },
+    it: {
+        dir: 'ltr', locale: 'it-IT', logo: 'Mizani', appTitle: 'Mizani Intel.', available: 'Disponibile', totalBudget: 'Budget', days: 'Giorni', savings: 'Risparmio', save: 'Aggiorna', income: 'Entrata', expense: 'Spesa', dayLimit: 'Limite', navHome: 'Home', navCats: 'Sezioni', navCalc: 'Calculatrice', navCur: 'Valuta', navStu: 'Lezioni', breakdown: 'Ripartizione', addCat: 'Aggiungi', addStu: 'Studente', addTeacher: 'Insegnante', catsTitle: 'Categorie', mainCats: 'Principali', customCats: 'Personalizzate', add: 'Aggiungi', catName: 'Nome', catType: 'Tipo', value: 'Valore', percentage: 'Percentuale (%)', fixedAmount: 'Importo Fisso', studentName: 'Nome Studente', subject: 'Materia', teacherName: 'Insegnante', teacherPrice: 'Prezzo', centerPrice: 'Costi Centro', alert: 'Avviso', ok: 'OK', confirmAction: 'Conferma', yesDelete: 'Elimina', cancel: 'Annulla', clear: 'Pulisci', noHistory: 'Vuoto', converter: 'Convertitore', searchCurrency: 'Cerca...', loadingRates: 'Caricamento...', success: 'Successo', budgetSaved: 'Salvato', catNamePlaceholder: 'es: Vestiti', studentNamePlaceholder: 'es: Mario', subjectPlaceholder: 'es: Matematica', teacherNamePlaceholder: 'es: Sig. Rossi', lessonsTitle: 'Lezioni', savingsPercentage: 'Risparmio', allocatedAmount: 'Importo:', studentDeleteConfirm: 'Eliminare studente?', teacherDeleteConfirm: 'Eliminare insegnante?', categoryDeleteConfirm: 'Eliminare categoria?', budgetShortage: 'Budget insufficiente!', budgetShortageTitle: 'Carenza', budgetExceeded: 'Superato!', budgetExceededTitle: 'Errore', insufficientBalance: 'Importo non sufficiente!', insufficientBalanceTitle: 'Budget', housing: 'Casa', food: 'Cibo', bills: 'Bollette', transport: 'Trasporti', shopping: 'Shopping', health: 'Salute', education: 'Educazione', entertainment: 'Svago', charity: 'Regali', debts: 'Debiti', emergency: 'Emergenza', EGP: 'Sterlina Egiziana', USD: 'Dollaro US', EUR: 'Euro', SAR: 'Riyal Saudita', AED: 'Dirham UAE', KWD: 'Dinar Kuwait'
+    },
+    es: {
+        dir: 'ltr', locale: 'es-ES', logo: 'Mizani', appTitle: 'Mizani Smart', available: 'Disponible', totalBudget: 'Presupuesto', days: 'Días', savings: 'Ahorro', save: 'Actualizar', income: 'Ingresos', expense: 'Gastos', dayLimit: 'Límite', navHome: 'Inicio', navCats: 'Secciones', navCalc: 'Calculadora', navCur: 'Divisa', navStu: 'Clases', breakdown: 'Desglose', addCat: 'Añadir', addStu: 'Estudiante', addTeacher: 'Profesor', catsTitle: 'Categorías', mainCats: 'Principales', customCats: 'Personalizadas', add: 'Añadir', catName: 'Nombre', catType: 'Tipo', value: 'Valor', percentage: 'Porcentaje (%)', fixedAmount: 'Importo Fijo', studentName: 'Estudiante', subject: 'Materia', teacherName: 'Profesor', teacherPrice: 'Precio', centerPrice: 'Gastos Centro', alert: 'Aviso', ok: 'OK', confirmAction: 'Confirmar', yesDelete: 'Eliminar', cancel: 'Cancelar', clear: 'Limpiar', noHistory: 'Vacío', converter: 'Conversor', searchCurrency: 'Buscar...', loadingRates: 'Cargando...', success: 'Éxito', budgetSaved: 'Guardado', catNamePlaceholder: 'ej: Ropa', studentNamePlaceholder: 'ej: Juan', subjectPlaceholder: 'ej: Mates', teacherNamePlaceholder: 'ej: Sr. Perez', lessonsTitle: 'Clases', savingsPercentage: 'Ahorro', allocatedAmount: 'Importe:', studentDeleteConfirm: '¿Eliminar estudiante?', teacherDeleteConfirm: '¿Eliminar profesor?', categoryDeleteConfirm: '¿Eliminar categoría?', budgetShortage: '¡Presupuesto insuficiente!', budgetShortageTitle: 'Déficit', budgetExceeded: '¡Superado!', budgetExceededTitle: 'Error', insufficientBalance: '¡Saldo insuficiente!', insufficientBalanceTitle: 'Budget', housing: 'Vivienda', food: 'Comida', bills: 'Facturas', transport: 'Transporte', shopping: 'Compras', health: 'Salud', education: 'Educación', entertainment: 'Ocio', charity: 'Regalos', debts: 'Deudas', emergency: 'Emergencia', EGP: 'Libra Egipcia', USD: 'Dólar US', EUR: 'Euro', SAR: 'Riyal Saudí', AED: 'Dírham UAE', KWD: 'Dinar Kuwait'
+    },
+    de: {
+        dir: 'ltr', locale: 'de-DE', logo: 'Mizani', appTitle: 'Mizani Smart', available: 'Verfügbar', totalBudget: 'Budget', days: 'Tage', savings: 'Sparen', save: 'Aktualis.', income: 'Einkommen', expense: 'Ausgaben', dayLimit: 'Tageslimit', navHome: 'Start', navCats: 'Sektionen', navCalc: 'Rechner', navCur: 'Währung', navStu: 'Unterrich', breakdown: 'Übersicht', addCat: 'Hinzufügen', addStu: 'Student', addTeacher: 'Lehrer', catsTitle: 'Kategorien', mainCats: 'Haupt', customCats: 'Eigene', add: 'Neu', catName: 'Name', catType: 'Typ', value: 'Wert', percentage: 'Prozent (%)', fixedAmount: 'Betrag', studentName: 'Name', subject: 'Fach', teacherName: 'Lehrer', teacherPrice: 'Preis', centerPrice: 'Zentrumskost.', alert: 'Alarm', ok: 'OK', confirmAction: 'Bestätigen', yesDelete: 'Löschen', cancel: 'Abbrechen', clear: 'Leeren', noHistory: 'Kein Verlauf', converter: 'Umrechner', searchCurrency: 'Suchen...', loadingRates: 'Lädt...', success: 'Erfolg', budgetSaved: 'Gespeichert', catNamePlaceholder: 'zB: Kleidung', studentNamePlaceholder: 'zB: Max', subjectPlaceholder: 'zB: Mathe', teacherNamePlaceholder: 'zB: Herr Müller', lessonsTitle: 'Unterricht', savingsPercentage: 'Sparen', allocatedAmount: 'Betrag:', studentDeleteConfirm: 'Student löschen?', teacherDeleteConfirm: 'Lehrer löschen?', categoryDeleteConfirm: 'Kategorie löschen?', budgetShortage: 'Budget fehlt!', budgetShortageTitle: 'Defizit', budgetExceeded: 'Überschritten!', budgetExceededTitle: 'Fehler', insufficientBalance: 'Nicht genug!', insufficientBalanceTitle: 'Budget', housing: 'Wohnen', food: 'Essen', bills: 'Rechnungen', transport: 'Transport', shopping: 'Shopping', health: 'Gesundheit', education: 'Bildung', entertainment: 'Spaß', charity: 'Geschenke', debts: 'Schulden', emergency: 'Notfall', EGP: 'Ägypt. Pfund', USD: 'US Dollar', EUR: 'Euro', SAR: 'Saud. Riyal', AED: 'VEE Dirham', KWD: 'Kuwait Dinar'
+    },
+    tr: {
+        dir: 'ltr', locale: 'tr-TR', logo: 'Mizani', appTitle: 'Mizani Akıllı', available: 'Mevcut', totalBudget: 'Bütçe', days: 'Günler', savings: 'Tasarruf', save: 'Güncelle', income: 'Gelir', expense: 'Gider', dayLimit: 'Günlük Sınır', navHome: 'Ana Sayfa', navCats: 'Bölümler', navCalc: 'Hesap', navCur: 'Kurlar', navStu: 'Dersler', breakdown: 'Dağılım', addCat: 'Ekle', addStu: 'Öğrenci', addTeacher: 'Öğretmen', catsTitle: 'Kategoriler', mainCats: 'Temel', customCats: 'Özel', add: 'Ekle', catName: 'Adı', catType: 'Tür', value: 'Değer', percentage: 'Yüzde (%)', fixedAmount: 'Sabit Tutar', studentName: 'Öğrenci Adı', subject: 'Ders', teacherName: 'Öğretmen', teacherPrice: 'Fiyat', centerPrice: 'Kurs Ücreti', alert: 'Uyarı', ok: 'Tamam', confirmAction: 'Onayla', yesDelete: 'Sil', cancel: 'İptal', clear: 'Temizle', noHistory: 'Kayıt Yok', converter: 'Çevirici', searchCurrency: 'Ara...', loadingRates: 'Yükleniyor...', success: 'Başarılı', budgetSaved: 'Kaydedildi', catNamePlaceholder: 'örn: Giyim', studentNamePlaceholder: 'örn: Ahmet', subjectPlaceholder: 'örn: Matematik', teacherNamePlaceholder: 'örn: Ali Bey', lessonsTitle: 'Dersler', savingsPercentage: 'Tasarruf', allocatedAmount: 'Tutar:', studentDeleteConfirm: 'Öğrenciyi sil?', teacherDeleteConfirm: 'Öğretmeni sil?', categoryDeleteConfirm: 'Kategoriyi sil?', budgetShortage: 'Yetersiz Bütçe!', budgetShortageTitle: 'Açık', budgetExceeded: 'Aşıldı!', budgetExceededTitle: 'Hata', insufficientBalance: 'Yetersiz Bakiye!', insufficientBalanceTitle: 'Bütçe', housing: 'Konut', food: 'Yemek', bills: 'Faturalar', transport: 'Ulaşım', shopping: 'Alışveriş', health: 'Sağlık', education: 'Eğitim', entertainment: 'Eğlence', charity: 'Hediye', debts: 'Borç', emergency: 'Acil', EGP: 'Mısır Lirası', USD: 'ABD Doları', EUR: 'Euro', SAR: 'Suudi Riyali', AED: 'BAE Dirhemi', KWD: 'Kuveyt Dinarı'
+    },
+    zh: {
+        dir: 'ltr', locale: 'zh-CN', logo: 'Mizani', appTitle: 'Mizani 智能', available: '可用额度', totalBudget: '预算', days: '天数', savings: '储蓄', save: '更新', income: '总收入', expense: '总支出', dayLimit: '每日限额', navHome: '首页', navCats: '板块', navCalc: '计算', navCur: '汇率', navStu: '课程', breakdown: '预算分配', addCat: '添加', addStu: '学生', addTeacher: '教师', catsTitle: '分类', mainCats: '基本', customCats: '自定义', add: '加', catName: '名称', catType: '类型', value: '数值', percentage: '百分比 (%)', fixedAmount: '固定金额', studentName: '学生姓名', subject: '科目', teacherName: '教师姓名', teacherPrice: '学费', centerPrice: '中心费用', alert: '提醒', ok: '确定', confirmAction: '确认操作', yesDelete: '删除', cancel: '取消', clear: '清空', noHistory: '暂无记录', converter: '汇率换算', searchCurrency: '搜索...', loadingRates: '加载中...', success: '操作成功', budgetSaved: '预算已保存', catNamePlaceholder: '例如：服装', studentNamePlaceholder: '例如：张三', subjectPlaceholder: '例如：数学', teacherNamePlaceholder: '例如：李老师', lessonsTitle: '课程', savingsPercentage: '储蓄进度', allocatedAmount: '分配金额:', studentDeleteConfirm: '确认删除该学生？', teacherDeleteConfirm: '确认删除该教师？', categoryDeleteConfirm: '确认删除该分类？', budgetShortage: '预算不足！', budgetShortageTitle: '预算赤字', budgetExceeded: '超出预算！', budgetExceededTitle: '错误', insufficientBalance: '余额不足！', insufficientBalanceTitle: '预算', housing: '居住', food: '日常饮食', bills: '账单', transport: '交通', shopping: '购物', health: '医疗', education: '教育', entertainment: '娱乐', charity: '慈善', debts: '债务', emergency: '应急', EGP: '埃及镑', USD: '美元', EUR: '欧元', SAR: '沙特里亚尔', AED: '阿联酋迪拉姆', KWD: '科威特第纳尔'
+    }
 };
 
 // State Management
@@ -110,10 +126,12 @@ if (yesBtn) {
 });
 
 function setCurrentDate() {
+    const lang = appState.language || 'ar';
+    const t = translations[lang] || translations['ar'];
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     const dateEl = document.getElementById('current-date');
     if (dateEl) {
-        dateEl.innerText = new Date().toLocaleDateString('ar-EG', options);
+        dateEl.innerText = new Date().toLocaleDateString(t.locale, options);
     }
     // Bottom navigation - attach click listeners
     document.querySelectorAll('.nav-item').forEach(li => {
@@ -168,9 +186,10 @@ function setupEventListeners() {
 
             const totalLessonsCost = calculateTotalLessons();
             const newBaseBudget = newTotal - newSavings - totalLessonsCost;
+            const t = translations[appState.language] || translations['ar'];
 
             if (newBaseBudget < 0) {
-                showCustomAlert('إجمالي الميزانية لا يغطي مبلغ التحويش ومصاريف الدروس التي حددتها مسبقاً!', 'عجز في الميزانية');
+                showCustomAlert(t.budgetShortage, t.budgetShortageTitle);
                 return;
             }
 
@@ -180,7 +199,7 @@ function setupEventListeners() {
             });
 
             if (tentativeCustomCost > newBaseBudget) {
-                showCustomAlert('الميزانية الجديدة أقل من الأقسام المضافة حالياً. الرجاء مسح بعض الأقسام أو رفع الميزانية لتغطي المصاريف!', 'عجز في الميزانية');
+                showCustomAlert(t.budgetShortage, t.budgetShortageTitle);
                 return;
             }
 
@@ -199,8 +218,8 @@ function setupEventListeners() {
             const modal = document.getElementById('budget-modal');
             if (modal) modal.style.display = 'none';
             
-            const msg = translations[appState.language]?.save || 'تم الحفظ';
-            showNotification(msg);
+            const successMsg = translations[appState.language]?.budgetSaved || 'Saved';
+            showNotification(successMsg);
         };
     }
 
@@ -238,9 +257,10 @@ function setupEventListeners() {
             // Validation Logic to prevent exceeding available budget
             const totalLessonsCost = calculateTotalLessons();
             const baseBudget = (appState.totalBudget || 0) - (appState.savingsGoal || 0) - totalLessonsCost;
+            const t = translations[appState.language] || translations['ar'];
 
             if (baseBudget <= 0) {
-                showCustomAlert('الرصيد المتاح لا يكفي. يرجى ضبط ميزانيتك الكلية أولاً!', 'خطأ في الميزانية');
+                showCustomAlert(t.insufficientBalance, t.insufficientBalanceTitle);
                 return;
             }
 
@@ -252,7 +272,7 @@ function setupEventListeners() {
             let newCost = (type === 'percentage') ? (baseBudget * value) / 100 : value;
 
             if (currentCustomCost + newCost > baseBudget) {
-                showCustomAlert('لقد تجاوزت الحد الاقصى المسموح به للميزانية!', 'عذراً لا يمكن الإضافة');
+                showCustomAlert(t.budgetExceeded, t.budgetExceededTitle);
                 return;
             }
 
@@ -385,11 +405,13 @@ function applyLanguage() {
     document.documentElement.dir = t.dir;
     document.documentElement.lang = lang;
 
+    // Refresh Date
+    setCurrentDate();
+
     // Universal Translation Loop
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (t[key]) {
-            // Special handle for buttons with icons
             const icon = el.querySelector('i');
             if (icon) {
                 el.innerHTML = `${icon.outerHTML} ${t[key]}`;
@@ -397,6 +419,12 @@ function applyLanguage() {
                 el.innerText = t[key];
             }
         }
+    });
+
+    // Placeholder Translation
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (t[key]) el.placeholder = t[key];
     });
 
     // Handle Input Labels (using for attribute)
@@ -410,13 +438,15 @@ function applyLanguage() {
         if (label) label.innerText = labelMapping[id];
     }
 
-    // Special: Update Navigation Spans
+    // Update Navigation Spans
     const navItems = document.querySelectorAll('.nav-item');
-    if (navItems.length >= 5) {
-        const navKeys = ['navHome', 'navCats', 'navCalc', 'navCur', 'navStu'];
-        navItems.forEach((item, idx) => {
+    if (navItems.length >= 3) {
+        const navKeys = ['navHome', 'navCats', 'navStu'];
+        navItems.forEach((item) => {
             const span = item.querySelector('span');
-            if (span && t[navKeys[idx]]) span.innerText = t[navKeys[idx]];
+            const dataSec = item.getAttribute('data-section');
+            const keyMap = { 'overview': 'navHome', 'fixed-categories': 'navCats', 'lessons': 'navStu' };
+            if (span && t[keyMap[dataSec]]) span.innerText = t[keyMap[dataSec]];
         });
     }
 
@@ -425,21 +455,19 @@ function applyLanguage() {
 
     // Panels & Headers
     const panels = {
-        'calculator-section': t.navCalc,
-        'currency-section': t.navCur,
-        'lessons-section': t.navStu,
-        'fixed-categories-section': t.navCats
+        'calculator-screen': t.navCalc,
+        'currency-screen': t.navCur,
+        'lessons-section': t.lessonsTitle,
+        'fixed-categories-section': t.catsTitle,
+        'quick-breakdown-section': t.breakdown
     };
     for(let id in panels) {
-        const header = document.querySelector(`#${id} h2`);
+        const header = document.querySelector(`#${id} h2, #${id} h3`);
         if (header) {
             const icon = header.querySelector('i');
             header.innerHTML = `${icon ? icon.outerHTML : ''} ${panels[id]}`;
         }
     }
-
-    const clearBtn = document.querySelector('.clear-hist-btn');
-    if (clearBtn) clearBtn.innerText = t.clear;
 }
 
 function updateMainBalance(amount) {
@@ -526,7 +554,10 @@ function renderMiniBreakdown(baseBudget, netBudgetForFixed) {
     // Sort by price strictly descending
     allCats.sort((a,b) => b.val - a.val);
     
+    const t = translations[appState.language] || translations['ar'];
+    
     list.innerHTML = allCats.map(cat => {
+        const catName = t[cat.id] || cat.name;
         return `
             <div style="display: flex; flex-direction: column; gap: 8px; opacity: ${cat.isActive ? '1' : '0.4'}; transition: opacity 0.3s ease;">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -536,8 +567,8 @@ function renderMiniBreakdown(baseBudget, netBudgetForFixed) {
                             <span class="slider"></span>
                         </label>
                         <i class="fas ${cat.icon || 'fa-tag'}" style="color: ${cat.color || 'var(--primary)'}; margin-left: 5px;"></i> 
-                        ${cat.name} 
-                        ${cat.isCustom ? `<i class="fas fa-trash" onclick="event.stopPropagation(); deleteCategory('${cat.id}')" style="cursor: pointer; color: var(--danger); font-size: 0.9rem; margin-right: 5px;" title="حذف القسم"></i>` : ''} 
+                        ${catName} 
+                        ${cat.isCustom ? `<i class="fas fa-trash" onclick="event.stopPropagation(); deleteCategory('${cat.id}')" style="cursor: pointer; color: var(--danger); font-size: 0.9rem; margin-right: 5px;" title="${t.cancel}"></i>` : ''} 
                         ${cat.isActive ? `<span style="font-size:0.7rem; color:var(--text-muted);">(${cat.displayPct.toFixed(1).replace('.0','')}%)</span>` : ''}
                     </span>
                     <span style="font-weight: 800; color: var(--text-main);">${formatCurrency(cat.val)}</span>
@@ -617,6 +648,8 @@ function createCategoryCard(cat, amount, daily, isCustom = false, isActive = tru
     }
 
     const displayPct = effectivePct !== null ? effectivePct.toFixed(1).replace('.0','') : cat.percentage;
+    const t = translations[appState.language] || translations['ar'];
+    const catName = t[cat.id] || cat.name;
 
     card.innerHTML = `
         <div class="header">
@@ -625,17 +658,17 @@ function createCategoryCard(cat, amount, daily, isCustom = false, isActive = tru
                     <input type="checkbox" ${isActive ? 'checked' : ''} onchange="toggleCategory('${cat.id}', ${isCustom})">
                     <span class="slider"></span>
                 </label>
-                <i class="fas ${cat.icon || 'fa-tag'}" style="color: ${cat.color || 'var(--primary)'}; background: ${cat.color ? cat.color + '20' : 'rgba(67, 97, 238, 0.1)'};"></i> ${cat.name}
+                <i class="fas ${cat.icon || 'fa-tag'}" style="color: ${cat.color || 'var(--primary)'}; background: ${cat.color ? cat.color + '20' : 'rgba(67, 97, 238, 0.1)'};"></i> ${catName}
             </span>
-            ${isCustom ? `<span class="delete-btn" onclick="deleteCategory('${cat.id}')"><i class="fas fa-trash"></i> حذف</span>` : `<span style="background: rgba(67, 97, 238, 0.1); color: var(--primary); padding: 3px 8px; border-radius: 8px; font-weight: 800; font-size: 0.75rem;">${displayPct}%</span>`}
+            ${isCustom ? `<span class="delete-btn" onclick="deleteCategory('${cat.id}')"><i class="fas fa-trash"></i> ${t.cancel}</span>` : `<span style="background: rgba(67, 97, 238, 0.1); color: var(--primary); padding: 3px 8px; border-radius: 8px; font-weight: 800; font-size: 0.75rem;">${displayPct}%</span>`}
         </div>
         <div class="limit-item">
-            <span>المبلغ المخصص:</span>
+            <span>${t.allocatedAmount}</span>
             <span class="limit-value">${formatCurrency(amount)}</span>
         </div>
         ${cat.id !== 'bills' ? `
         <div class="limit-item">
-            <span>الحد اليومي:</span>
+            <span>${t.dayLimit}:</span>
             <span class="limit-value">${formatCurrency(daily)}</span>
         </div>` : ''}
         <div class="progress-container">
@@ -650,6 +683,8 @@ function renderStudents() {
     if (!list) return;
     list.innerHTML = '';
     
+    const t = translations[appState.language] || translations['ar'];
+
     appState.students.forEach(student => {
         const isActiveStudent = student.active !== false;
         const teachers = student.teachers || [];
@@ -661,21 +696,21 @@ function renderStudents() {
         card.style.borderTop = `6px solid ${isActiveStudent ? 'var(--secondary)' : '#cbd5e0'}`;
         
         let teachersHtml = '';
-        teachers.forEach(t => {
-            const isActiveTeacher = t.active !== false && isActiveStudent;
+        teachers.forEach(teacher => {
+            const isActiveTeacher = teacher.active !== false && isActiveStudent;
             teachersHtml += `
                 <tr style="opacity: ${isActiveTeacher ? '1' : '0.4'}">
                     <td>
                         <label class="switch" style="width:30px; height: 18px; margin-right:0">
-                            <input type="checkbox" ${t.active !== false ? 'checked' : ''} onchange="event.stopPropagation(); toggleTeacher('${student.id}', '${t.id}')">
+                            <input type="checkbox" ${teacher.active !== false ? 'checked' : ''} onchange="event.stopPropagation(); toggleTeacher('${student.id}', '${teacher.id}')">
                             <span class="slider" style="before: {width:12px; height:12px; left:3px; bottom:3px}"></span>
                         </label>
                     </td>
-                    <td style="font-weight:800">${t.subject}</td>
-                    <td>${t.name}</td>
-                    <td>${formatCurrency(t.price)}</td>
-                    <td>${formatCurrency(t.center)}</td>
-                    <td><i class="fas fa-trash text-danger" style="cursor:pointer" onclick="event.stopPropagation(); deleteTeacher('${student.id}', '${t.id}')"></i></td>
+                    <td style="font-weight:800">${teacher.subject}</td>
+                    <td>${teacher.name}</td>
+                    <td>${formatCurrency(teacher.price)}</td>
+                    <td>${formatCurrency(teacher.center)}</td>
+                    <td><i class="fas fa-trash text-danger" style="cursor:pointer" onclick="event.stopPropagation(); deleteTeacher('${student.id}', '${teacher.id}')"></i></td>
                 </tr>
             `;
         });
@@ -694,25 +729,25 @@ function renderStudents() {
             
             <div class="student-content">
                 <div class="student-info" style="margin-top:1rem; display: flex; justify-content: space-between; align-items: center;">
-                    <span>إجمالي المصروف المفعّل:</span>
+                    <span data-i18n="allocatedAmount">${t.allocatedAmount}</span>
                     <strong style="color: var(--secondary); font-size: 1.1rem;">${formatCurrency(studentCost)}</strong>
                 </div>
                 <table class="teachers-table">
                     <thead>
                         <tr>
-                            <th style="width:40px">تفعيل</th>
-                            <th>المادة</th>
-                            <th>المعلم</th>
-                            <th>السعر</th>
-                            <th>السنتر</th>
+                            <th style="width:40px"></th>
+                            <th data-i18n="subject">${t.subject}</th>
+                            <th data-i18n="teacherName">${t.teacherName}</th>
+                            <th data-i18n="teacherPrice">${t.teacherPrice}</th>
+                            <th data-i18n="centerPrice">${t.centerPrice}</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        ${teachersHtml || '<tr><td colspan="6" style="text-align:center; padding: 20px;">لا يوجد مدرسين حالياً</td></tr>'}
+                        ${teachersHtml || `<tr><td colspan="6" style="text-align:center; padding: 20px;">${t.noHistory}</td></tr>`}
                     </tbody>
                 </table>
-                <button onclick="openTeacherModal('${student.id}')" class="btn btn-secondary w-100" style="margin-top:1.5rem; padding: 10px; font-size: 0.85rem; background: var(--bg-main); color: var(--primary); border: 2px dashed var(--primary); border-radius: 12px;">+ إضافة مادة/معلم</button>
+                <button onclick="openTeacherModal('${student.id}')" class="btn btn-secondary w-100" style="margin-top:1.5rem; padding: 10px; font-size: 0.85rem; background: var(--bg-main); color: var(--primary); border: 2px dashed var(--primary); border-radius: 12px;">+ ${t.addTeacher}</button>
             </div>
         `;
 
@@ -727,7 +762,8 @@ function calculateOverallDailyLimit(netBudget) {
 
 // Actions
 window.deleteCategory = (id) => {
-    showCustomConfirm('هل أنت متأكد من حذف هذا القسم بشكل نهائي؟ ولن تتمكن من استعادته.', () => {
+    const t = translations[appState.language] || translations['ar'];
+    showCustomConfirm(t.categoryDeleteConfirm, () => {
         appState.customCategories = appState.customCategories.filter(c => c.id !== id);
         saveData();
         updateUI();
@@ -745,7 +781,8 @@ window.toggleCategory = (id, isCustom) => {
 };
 
 window.deleteStudent = (id) => {
-    showCustomConfirm('هل أنت متأكد من حذف هذا الطالب وتفريغ كل بياناته؟', () => {
+    const t = translations[appState.language] || translations['ar'];
+    showCustomConfirm(t.studentDeleteConfirm, () => {
         appState.students = appState.students.filter(s => s.id !== id);
         saveData();
         updateUI();
@@ -753,7 +790,8 @@ window.deleteStudent = (id) => {
 };
 
 window.deleteTeacher = (studentId, teacherId) => {
-    showCustomConfirm('هل تريد حذف هذا المدرس نهائياً؟', () => {
+    const t = translations[appState.language] || translations['ar'];
+    showCustomConfirm(t.teacherDeleteConfirm, () => {
         const student = appState.students.find(s => s.id === studentId);
         if (student) {
             student.teachers = student.teachers.filter(t => t.id !== teacherId);
@@ -824,7 +862,8 @@ function updateMainBalance(val) {
 }
 
 function showNotification(msg) {
-    showCustomAlert(msg, 'عملية ناجحة');
+    const t = translations[appState.language] || translations['ar'];
+    showCustomAlert(msg, t.success);
 }
 
 window.toggleQuickFx = function(e) {
@@ -1010,12 +1049,13 @@ function updateCalcDisplay() {
 function renderHistory() {
     const hist = document.getElementById('calc-history');
     if (!hist) return;
+    const t = translations[appState.language] || translations['ar'];
     hist.innerHTML = calcState.history.map((h, i) => `
         <div class="history-item" onclick="recallHistory(${i})">
             <div class="history-expr">${h.expr}</div>
             <div class="history-res">${h.res}</div>
         </div>
-    `).join('') || '<div style="color:#636366;font-size:0.8rem;text-align:center;padding:10px">لا يوجد سجل</div>';
+    `).join('') || `<div style="color:#636366;font-size:0.8rem;text-align:center;padding:10px">${t.noHistory}</div>`;
 }
 
 window.recallHistory = function(i) {
@@ -1034,7 +1074,6 @@ window.clearHistory = function() {
 // ================================================================
 //  CURRENCY LOGIC
 // ================================================================
-const CURRENCY_NAMES = { EGP: 'جنيه مصري', USD: 'دولار أمريكي', EUR: 'يورو', SAR: 'ريال سعودي', AED: 'درهم إماراتي', KWD: 'دينار كويتي' };
 const CURRENCY_FLAGS = { EGP: '🇪🇬', USD: '🇺🇸', EUR: '🇪🇺', SAR: '🇸🇦', AED: '🇦🇪', KWD: '🇰🇼' };
 let ratesData = {};
 
@@ -1059,11 +1098,12 @@ window.fetchRates = async function() {
 function renderCurrencyGrid() {
     const grid = document.getElementById('currency-grid');
     if (!grid) return;
+    const t = translations[appState.language] || translations['ar'];
     grid.innerHTML = Object.keys(CURRENCY_FLAGS).map(code => `
         <div class="currency-card" onclick="selectCurrencyForConvert('${code}')">
             <div class="cc-flag">${CURRENCY_FLAGS[code]}</div>
             <div class="cc-code">${code}</div>
-            <div class="cc-name">${CURRENCY_NAMES[code] || ''}</div>
+            <div class="cc-name">${t[code] || code}</div>
             <div class="cc-rate">${(ratesData[code] || 0).toFixed(2)}</div>
         </div>
     `).join('');

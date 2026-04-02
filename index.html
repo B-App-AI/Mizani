@@ -24,7 +24,7 @@
         <header class="top-bar">
             <div class="logo-mobile">
                 <i class="fas fa-wallet"></i>
-                <span>ميزاني</span>
+                <span data-i18n="logo">ميزاني</span>
             </div>
             <div class="date-badge">
                 <span id="current-date"></span>
@@ -108,10 +108,10 @@
 
                     <!-- Quick Tools -->
                     <div class="quick-tools">
-                        <button onclick="handleNavigation('calculator')" class="quick-tool-btn">
+                        <button onclick="handleNavigation('calculator')" class="quick-tool-btn" data-i18n="navCalc">
                             <i class="fas fa-calculator"></i> الآلة الحاسبة
                         </button>
-                        <button onclick="handleNavigation('currency')" class="quick-tool-btn">
+                        <button onclick="handleNavigation('currency')" class="quick-tool-btn" data-i18n="navCur">
                             <i class="fas fa-coins"></i> محول العملات
                         </button>
                     </div>
@@ -143,7 +143,7 @@
                     <div class="stat-card">
                         <div class="stat-icon lessons"><i class="fas fa-graduation-cap"></i></div>
                         <div class="stat-details">
-                            <span>مصاريف الدروس</span>
+                            <span data-i18n="navStu">مصاريف الدروس</span>
                             <h3 id="total-lessons-cost">0.00</h3>
                         </div>
                     </div>
@@ -163,8 +163,8 @@
                 <!-- Budget Breakdown -->
                 <div id="quick-breakdown-section" class="card shadow">
                     <div class="card-header-row">
-                        <h3><i class="fas fa-chart-pie"></i> توزيع الميزانية</h3>
-                        <button onclick="window.openModal('category-modal')" class="btn btn-add-sm">+ إضافة قسم</button>
+                        <h3 data-i18n="breakdown"><i class="fas fa-chart-pie"></i> توزيع الميزانية</h3>
+                        <button onclick="window.openModal('category-modal')" class="btn btn-add-sm" data-i18n="addCat">+ إضافة قسم</button>
                     </div>
                     <div id="mini-breakdown-list" class="breakdown-list"></div>
                 </div>
@@ -175,8 +175,8 @@
             <section id="lessons-section" class="main-section hidden">
                 <div class="card shadow section-card lessons-card">
                     <div class="card-header-row">
-                        <h2><i class="fas fa-graduation-cap"></i> الدروس والمدرسين</h2>
-                        <button onclick="window.openModal('student-modal')" class="btn btn-add-sm">+ إضافة طالب</button>
+                        <h2 data-i18n="lessonsTitle"><i class="fas fa-graduation-cap"></i> الدروس والمدرسين</h2>
+                        <button onclick="window.openModal('student-modal')" class="btn btn-add-sm" data-i18n="addStu">+ إضافة طالب</button>
                     </div>
                     <div id="students-list" class="students-grid"></div>
                 </div>
@@ -186,12 +186,12 @@
             <section id="fixed-categories-section" class="main-section hidden">
                 <div class="card shadow section-card cats-card">
                     <div class="card-header-row">
-                        <h2><i class="fas fa-list-ul"></i> الأقسام المتاحة</h2>
-                        <button id="add-custom-category-btn" class="btn btn-add-sm" onclick="window.openModal('category-modal')">+ إضافة</button>
+                        <h2 data-i18n="catsTitle"><i class="fas fa-list-ul"></i> الأقسام المتاحة</h2>
+                        <button id="add-custom-category-btn" class="btn btn-add-sm" onclick="window.openModal('category-modal')" data-i18n="add">+ إضافة</button>
                     </div>
-                    <h3 class="sub-title">الأقسام الأساسية</h3>
+                    <h3 class="sub-title" data-i18n="mainCats">الأقسام الأساسية</h3>
                     <div id="fixed-categories-list" class="categories-grid"></div>
-                    <h3 class="sub-title">أقسامك المخصصة</h3>
+                    <h3 class="sub-title" data-i18n="customCats">أقسامك المخصصة</h3>
                     <div id="custom-categories-list" class="categories-grid"></div>
                 </div>
             </section>
@@ -202,15 +202,15 @@
         <nav class="bottom-nav">
             <div class="nav-item active" data-section="overview" id="nav-overview">
                 <i class="fas fa-chart-pie"></i>
-                <span>الرئيسية</span>
+                <span data-i18n="navHome">الرئيسية</span>
             </div>
             <div class="nav-item" data-section="fixed-categories" id="nav-cats">
                 <i class="fas fa-list-ul"></i>
-                <span>الأقسام</span>
+                <span data-i18n="navCats">الأقسام</span>
             </div>
             <div class="nav-item" data-section="lessons" id="nav-lessons">
                 <i class="fas fa-graduation-cap"></i>
-                <span>دروس</span>
+                <span data-i18n="navStu">دروس</span>
             </div>
         </nav>
     </div>
@@ -221,24 +221,24 @@
     <div id="category-modal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="window.closeModal('category-modal')">&times;</span>
-            <h2 id="modal-title">إضافة قسم جديد</h2>
+            <h2 id="modal-title" data-i18n="addCat">إضافة قسم جديد</h2>
             <form id="category-form">
                 <div class="form-group">
-                    <label>اسم القسم</label>
-                    <input type="text" id="cat-name" required placeholder="مثلاً: ملابس">
+                    <label data-i18n="catName">اسم القسم</label>
+                    <input type="text" id="cat-name" required placeholder="مثلاً: ملابس" data-i18n-placeholder="catNamePlaceholder">
                 </div>
                 <div class="form-group">
-                    <label>نوع التخصيص</label>
+                    <label data-i18n="catType">نوع التخصيص</label>
                     <select id="cat-type">
-                        <option value="percentage">نسبة مئوية (%)</option>
-                        <option value="fixed">مبلغ محدد</option>
+                        <option value="percentage" data-i18n="percentage">نسبة مئوية (%)</option>
+                        <option value="fixed" data-i18n="fixedAmount">مبلغ محدد</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label id="cat-value-label">القيمة</label>
+                    <label id="cat-value-label" data-i18n="value">القيمة</label>
                     <input type="number" id="cat-value" step="0.01" required placeholder="10" inputmode="decimal">
                 </div>
-                <button type="submit" class="btn btn-primary w-100">حفظ القسم</button>
+                <button type="submit" class="btn btn-primary w-100" data-i18n="save">حفظ القسم</button>
             </form>
         </div>
     </div>
@@ -247,13 +247,13 @@
     <div id="student-modal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="window.closeModal('student-modal')">&times;</span>
-            <h2>إضافة طالب جديد</h2>
+            <h2 data-i18n="addStu">إضافة طالب جديد</h2>
             <form id="student-form">
                 <div class="form-group">
-                    <label>اسم الطالب</label>
-                    <input type="text" id="student-name" required placeholder="مثلاً: محمد">
+                    <label data-i18n="studentName">اسم الطالب</label>
+                    <input type="text" id="student-name" required placeholder="مثلاً: محمد" data-i18n-placeholder="studentNamePlaceholder">
                 </div>
-                <button type="submit" class="btn btn-primary w-100">إضافة الطالب</button>
+                <button type="submit" class="btn btn-primary w-100" data-i18n="add">إضافة الطالب</button>
             </form>
         </div>
     </div>
@@ -262,26 +262,26 @@
     <div id="teacher-modal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="window.closeModal('teacher-modal')">&times;</span>
-            <h2>إضافة معلم للمادة</h2>
+            <h2 data-i18n="addTeacher">إضافة معلم للمادة</h2>
             <form id="teacher-form">
                 <input type="hidden" id="current-student-id">
                 <div class="form-group">
-                    <label>المادة</label>
-                    <input type="text" id="subject-name" required placeholder="مثلاً: رياضيات">
+                    <label data-i18n="subject">المادة</label>
+                    <input type="text" id="subject-name" required placeholder="مثلاً: رياضيات" data-i18n-placeholder="subjectPlaceholder">
                 </div>
                 <div class="form-group">
-                    <label>اسم المعلم</label>
-                    <input type="text" id="teacher-name" required placeholder="مثلاً: مستر علي">
+                    <label data-i18n="teacherName">اسم المعلم</label>
+                    <input type="text" id="teacher-name" required placeholder="مثلاً: مستر علي" data-i18n-placeholder="teacherNamePlaceholder">
                 </div>
                 <div class="form-group">
-                    <label>سعر الحصة / الشهر</label>
+                    <label data-i18n="teacherPrice">سعر الحصة / الشهر</label>
                     <input type="number" id="teacher-price" required placeholder="200" inputmode="decimal">
                 </div>
                 <div class="form-group">
-                    <label>مصاريف السنتر (اختياري)</label>
+                    <label data-i18n="centerPrice">مصاريف السنتر (اختياري)</label>
                     <input type="number" id="center-price" placeholder="0" value="0" inputmode="decimal">
                 </div>
-                <button type="submit" class="btn btn-primary w-100">إضافة المعلم</button>
+                <button type="submit" class="btn btn-primary w-100" data-i18n="add">إضافة المعلم</button>
             </form>
         </div>
     </div>
@@ -290,9 +290,9 @@
     <div id="custom-alert-modal" class="modal" style="z-index: 3000;">
         <div class="modal-content modal-alert">
             <i class="fas fa-exclamation-circle alert-icon"></i>
-            <h3 id="custom-alert-title">تنبيه</h3>
+            <h3 id="custom-alert-title" data-i18n="alert">تنبيه</h3>
             <p id="custom-alert-message"></p>
-            <button onclick="closeCustomAlert()" class="btn btn-primary w-100">حسناً، فهمت</button>
+            <button onclick="closeCustomAlert()" class="btn btn-primary w-100" data-i18n="ok">حسناً، فهمت</button>
         </div>
     </div>
 
@@ -300,11 +300,11 @@
     <div id="custom-confirm-modal" class="modal" style="z-index: 3000;">
         <div class="modal-content modal-alert">
             <i class="fas fa-question-circle alert-icon" style="color: #ff9f43;"></i>
-            <h3>تأكيد الإجراء</h3>
+            <h3 data-i18n="confirmAction">تأكيد الإجراء</h3>
             <p id="custom-confirm-message"></p>
             <div class="confirm-btns">
-                <button id="custom-confirm-yes" class="btn btn-danger">نعم، احذف</button>
-                <button onclick="closeCustomConfirm()" class="btn btn-secondary">إلغاء</button>
+                <button id="custom-confirm-yes" class="btn btn-danger" data-i18n="yesDelete">نعم، احذف</button>
+                <button onclick="closeCustomConfirm()" class="btn btn-secondary" data-i18n="cancel">إلغاء</button>
             </div>
         </div>
     </div>
@@ -318,11 +318,11 @@
                 <i class="fas fa-arrow-right"></i>
             </button>
             <h2 data-i18n="navCalc">الآلة الحاسبة</h2>
-            <button class="btn panel-action-btn" onclick="clearHistory()">تصفير</button>
+            <button class="btn panel-action-btn" onclick="clearHistory()" data-i18n="clear">تصفير</button>
         </header>
         <div class="panel-content calc-panel-content">
             <div id="calc-history" class="calc-history">
-                <div class="calc-history-empty">لا يوجد سجل</div>
+                <div class="calc-history-empty" data-i18n="noHistory">لا يوجد سجل</div>
             </div>
             <div class="calc-display-area">
                 <div id="calc-expression" class="calc-expression"></div>
@@ -366,7 +366,7 @@
         <div class="panel-content">
             <!-- Converter Card -->
             <div class="currency-converter-card">
-                <h3><i class="fas fa-exchange-alt"></i> محول العملات</h3>
+                <h3 data-i18n="converter"><i class="fas fa-exchange-alt"></i> محول العملات</h3>
                 <div class="converter-row">
                     <input type="number" id="from-amount" value="1" oninput="convertCurrency()" inputmode="decimal">
                     <select id="from-currency" onchange="convertCurrency()"></select>
@@ -384,11 +384,11 @@
             <!-- Search -->
             <div class="search-container">
                 <i class="fas fa-search"></i>
-                <input type="text" id="currency-search" placeholder="ابحث عن عملة..." oninput="filterCurrencies()">
+                <input type="text" id="currency-search" placeholder="ابحث عن عملة..." data-i18n-placeholder="searchCurrency" oninput="filterCurrencies()">
             </div>
 
             <!-- Rate Grid -->
-            <div id="currency-status" class="currency-status"><i class="fas fa-spinner fa-spin"></i> جاري تحميل الأسعار...</div>
+            <div id="currency-status" class="currency-status"><i class="fas fa-spinner fa-spin"></i> <span data-i18n="loadingRates">جاري تحميل الأسعار...</span></div>
             <div id="currency-grid" class="currency-grid"></div>
         </div>
     </div>
