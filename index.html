@@ -3,162 +3,242 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ميزاني | إدارة الميزانية الذكية</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#4361ee">
+    <meta name="description" content="ميزاني - تطبيق إدارة الميزانية الذكية">
+    <title>ميزاني | لإدارة الميزانية الذكية</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="fa.min.css">
 </head>
 
 <body>
     <div class="app-container">
-        <!-- Main Content -->
+
+        <!-- ===== TOP BAR ===== -->
+        <header class="top-bar">
+            <div class="logo-mobile">
+                <i class="fas fa-wallet"></i>
+                <span>ميزاني</span>
+            </div>
+            <div class="date-badge">
+                <span id="current-date"></span>
+                <i class="fas fa-calendar-alt"></i>
+            </div>
+        </header>
+
+        <!-- ===== MAIN CONTENT ===== -->
         <main class="main-content">
-            <header class="top-bar">
-                <div class="logo-mobile">
-                    <i class="fas fa-wallet"></i>
-                    <span>ميزاني</span>
-                </div>
-                <div class="user-profile">
-                    <span id="current-date"></span>
-                    <i class="fas fa-calendar-alt"></i>
-                </div>
-            </header>
 
-            <section id="budget-setup" class="card shadow">
-                <div class="card-header">
-                    <h2><i class="fas fa-cog"></i> إعداد الميزانية</h2>
+            <!-- === SECTION 1: OVERVIEW (HOME) === -->
+            <section id="overview-section" class="main-section">
+
+                <!-- Currency & Language Pickers (Floating) -->
+                <div id="currency-picker-overlay" class="lang-picker-hidden">
+                    <div class="lang-option" onclick="selectCurrency('ر.س')"><span>🇸🇦</span> ر.س</div>
+                    <div class="lang-option" onclick="selectCurrency('ج.م')"><span>🇪🇬</span> ج.م</div>
+                    <div class="lang-option" onclick="selectCurrency('د.إ')"><span>🇦🇪</span> د.إ</div>
+                    <div class="lang-option" onclick="selectCurrency('$')"><span>🇺🇸</span> USD ($)</div>
+                    <div class="lang-option" onclick="selectCurrency('€')"><span>🇪🇺</span> EUR (€)</div>
+                    <div class="lang-option" onclick="selectCurrency('د.ك')"><span>🇰🇼</span> د.ك</div>
                 </div>
-                <div class="grid-inputs">
-                    <div class="input-group">
-                        <label for="total-budget">الميزانية الكلية</label>
-                        <input type="number" id="total-budget" placeholder="0.00" min="0">
+                <div id="lang-picker-overlay" class="lang-picker-hidden">
+                    <div class="lang-option" onclick="selectLang('ar')"><span>🇸🇦</span> العربية</div>
+                    <div class="lang-option" onclick="selectLang('en')"><span>🇺🇸</span> English</div>
+                    <div class="lang-option" onclick="selectLang('fr')"><span>🇫🇷</span> Français</div>
+                    <div class="lang-option" onclick="selectLang('it')"><span>🇮🇹</span> Italiano</div>
+                    <div class="lang-option" onclick="selectLang('es')"><span>🇪🇸</span> Español</div>
+                    <div class="lang-option" onclick="selectLang('de')"><span>🇩🇪</span> Deutsch</div>
+                    <div class="lang-option" onclick="selectLang('tr')"><span>🇹🇷</span> Türkçe</div>
+                    <div class="lang-option" onclick="selectLang('zh')"><span>🇨🇳</span> 中文</div>
+                </div>
+
+                <!-- Budget Summary Card -->
+                <div class="total-summary">
+                    <div class="summary-top">
+                        <div>
+                            <h2 data-i18n="available">الميزانية المتاحة</h2>
+                            <div class="amount-wrap">
+                                <div class="amount" id="total-balance">0.00 ر.س</div>
+                                <div class="header-controls">
+                                    <button class="quick-fx-btn" onclick="toggleQuickFx(event)" title="تغيير العملة">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                    </button>
+                                    <button class="quick-lang-btn" onclick="toggleQuickLang(event)" title="تغيير اللغة">
+                                        <i class="fas fa-globe"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="input-group">
-                        <label for="budget-days">عدد الأيام</label>
-                        <input type="number" id="budget-days" placeholder="30" min="1">
+
+                    <!-- Budget Setup Form -->
+                    <form id="budget-form" class="budget-grid">
+                        <div class="input-group">
+                            <label for="total-budget" data-i18n="totalBudget">الميزانية</label>
+                            <input type="number" id="total-budget" placeholder="0.00" inputmode="decimal">
+                        </div>
+                        <div class="input-group">
+                            <label for="budget-days" data-i18n="days">الأيام</label>
+                            <input type="number" id="budget-days" value="30" inputmode="numeric">
+                        </div>
+                        <div class="input-group">
+                            <label for="savings-goal" data-i18n="savings">التحويش</label>
+                            <input type="number" id="savings-goal" placeholder="0.00" inputmode="decimal">
+                        </div>
+                        <button type="submit" id="save-budget" class="btn btn-save" data-i18n="save">تحديث</button>
+                    </form>
+
+                    <!-- Income / Expense Row -->
+                    <div class="summary-stats">
+                        <span class="summary-stat-item">
+                            <span class="stat-label"><i class="fas fa-plus-circle"></i> <span data-i18n="income">الميزانية الكلية</span></span>
+                            <span id="total-income" class="stat-val">0</span>
+                        </span>
+                        <span class="summary-stat-item">
+                            <span class="stat-label"><i class="fas fa-minus-circle"></i> <span data-i18n="expense">إجمالي الصرف</span></span>
+                            <span id="total-expense" class="stat-val">0</span>
+                        </span>
                     </div>
-                    <div class="input-group">
-                        <label for="savings-goal">مبلغ التحويش (اختياري)</label>
-                        <input type="number" id="savings-goal" placeholder="0.00" min="0">
+
+                    <!-- Quick Tools -->
+                    <div class="quick-tools">
+                        <button onclick="handleNavigation('calculator')" class="quick-tool-btn">
+                            <i class="fas fa-calculator"></i> الآلة الحاسبة
+                        </button>
+                        <button onclick="handleNavigation('currency')" class="quick-tool-btn">
+                            <i class="fas fa-coins"></i> محول العملات
+                        </button>
                     </div>
                 </div>
-                <button id="save-budget" class="btn btn-primary">حفظ الإعدادات</button>
+
+                <!-- Smart Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon income"><i class="fas fa-money-bill-wave"></i></div>
+                        <div class="stat-details">
+                            <span data-i18n="available">صافي الميزانية</span>
+                            <h3 id="available-budget">0.00</h3>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon savings"><i class="fas fa-piggy-bank"></i></div>
+                        <div class="stat-details">
+                            <span data-i18n="savings">التحويش</span>
+                            <h3 id="display-savings">0.00</h3>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon daily"><i class="fas fa-clock"></i></div>
+                        <div class="stat-details">
+                            <span data-i18n="dayLimit">الحد اليومي</span>
+                            <h3 id="total-daily-limit">0.00</h3>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon lessons"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="stat-details">
+                            <span>مصاريف الدروس</span>
+                            <h3 id="total-lessons-cost">0.00</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Savings Progress -->
+                <div id="savings-progress-container" class="card shadow hidden">
+                    <div class="progress-info">
+                        <span data-i18n="savingsPercentage">نسبة التحويش</span>
+                        <span id="savings-percentage">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div id="savings-progress-fill" class="progress-fill"></div>
+                    </div>
+                </div>
+
+                <!-- Budget Breakdown -->
+                <div id="quick-breakdown-section" class="card shadow">
+                    <div class="card-header-row">
+                        <h3><i class="fas fa-chart-pie"></i> توزيع الميزانية</h3>
+                        <button onclick="window.openModal('category-modal')" class="btn btn-add-sm">+ إضافة قسم</button>
+                    </div>
+                    <div id="mini-breakdown-list" class="breakdown-list"></div>
+                </div>
+
             </section>
 
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-icon income"><i class="fas fa-money-bill-wave"></i></div>
-                    <div class="stat-details">
-                        <span>الميزانية المتاحة</span>
-                        <h3 id="available-budget">0.00</h3>
+            <!-- === SECTION 2: LESSONS === -->
+            <section id="lessons-section" class="main-section hidden">
+                <div class="card shadow section-card lessons-card">
+                    <div class="card-header-row">
+                        <h2><i class="fas fa-graduation-cap"></i> الدروس والمدرسين</h2>
+                        <button onclick="window.openModal('student-modal')" class="btn btn-add-sm">+ إضافة طالب</button>
                     </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon savings"><i class="fas fa-piggy-bank"></i></div>
-                    <div class="stat-details">
-                        <span>التحويش</span>
-                        <h3 id="display-savings">0.00</h3>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon daily"><i class="fas fa-clock"></i></div>
-                    <div class="stat-details">
-                        <span>الحد اليومي الكلي</span>
-                        <h3 id="total-daily-limit">0.00</h3>
-                    </div>
-                </div>
-            </div>
-
-            <div id="savings-progress-container" class="card shadow hidden">
-                <div class="progress-info">
-                    <span>نسبة التحويش من الميزانية</span>
-                    <span id="savings-percentage">0%</span>
-                </div>
-                <div class="progress-bar">
-                    <div id="savings-progress-fill" class="progress-fill"></div>
-                </div>
-            </div>
-
-            <!-- Sections Container -->
-            <div id="categories-container" class="sections-wrapper">
-                <h3>الأقسام الأساسية</h3>
-                <div id="fixed-categories-list" class="grid-cards">
-                    <!-- Cards will be injected by JS -->
-                </div>
-
-                <div class="flex-header">
-                    <h3>أقسام مخصصة</h3>
-                    <button id="add-custom-category-btn" class="btn btn-secondary"><i class="fas fa-plus"></i> إضافة
-                        قسم</button>
-                </div>
-                <div id="custom-categories-list" class="grid-cards">
-                    <!-- Cards will be injected by JS -->
-                </div>
-            </div>
-
-            <!-- Lessons Section -->
-            <section id="lessons-section" class="card shadow">
-                <div class="card-header">
-                    <h2><i class="fas fa-graduation-cap"></i> قسم الدروس (اختياري)</h2>
-                    <button id="add-student-btn" class="btn btn-secondary">إضافة طالب <i
-                            class="fas fa-user-plus"></i></button>
-                </div>
-                <div id="students-list" class="students-grid">
-                    <!-- Students will be injected by JS -->
-                </div>
-                <div class="lessons-summary">
-                    <span>إجمالي مصروف الدروس: </span>
-                    <strong id="total-lessons-cost">0.00</strong>
+                    <div id="students-list" class="students-grid"></div>
                 </div>
             </section>
+
+            <!-- === SECTION 3: CATEGORIES === -->
+            <section id="fixed-categories-section" class="main-section hidden">
+                <div class="card shadow section-card cats-card">
+                    <div class="card-header-row">
+                        <h2><i class="fas fa-list-ul"></i> الأقسام المتاحة</h2>
+                        <button id="add-custom-category-btn" class="btn btn-add-sm" onclick="window.openModal('category-modal')">+ إضافة</button>
+                    </div>
+                    <h3 class="sub-title">الأقسام الأساسية</h3>
+                    <div id="fixed-categories-list" class="categories-grid"></div>
+                    <h3 class="sub-title">أقسامك المخصصة</h3>
+                    <div id="custom-categories-list" class="categories-grid"></div>
+                </div>
+            </section>
+
         </main>
 
-        <!-- Bottom Navigation -->
+        <!-- ===== BOTTOM NAVIGATION ===== -->
         <nav class="bottom-nav">
-            <div class="nav-item active" data-section="overview">
+            <div class="nav-item active" data-section="overview" id="nav-overview">
                 <i class="fas fa-chart-pie"></i>
                 <span>الرئيسية</span>
             </div>
-            <div class="nav-item" data-section="fixed-categories">
+            <div class="nav-item" data-section="fixed-categories" id="nav-cats">
                 <i class="fas fa-list-ul"></i>
                 <span>الأقسام</span>
             </div>
-            <div class="nav-item" data-section="custom-categories">
-                <i class="fas fa-plus-circle"></i>
-                <span>مخصص</span>
-            </div>
-            <div class="nav-item" data-section="lessons">
+            <div class="nav-item" data-section="lessons" id="nav-lessons">
                 <i class="fas fa-graduation-cap"></i>
                 <span>دروس</span>
             </div>
         </nav>
     </div>
 
-    <!-- Modals -->
+    <!-- ===== MODALS ===== -->
+
+    <!-- Category Modal -->
     <div id="category-modal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close" onclick="window.closeModal('category-modal')">&times;</span>
             <h2 id="modal-title">إضافة قسم جديد</h2>
             <form id="category-form">
-                <div class="input-group">
+                <div class="form-group">
                     <label>اسم القسم</label>
-                    <input type="text" id="cat-name" required>
+                    <input type="text" id="cat-name" required placeholder="مثلاً: ملابس">
                 </div>
-                <div class="input-group">
+                <div class="form-group">
                     <label>نوع التخصيص</label>
                     <select id="cat-type">
                         <option value="percentage">نسبة مئوية (%)</option>
                         <option value="fixed">مبلغ محدد</option>
                     </select>
                 </div>
-                <div class="input-group">
+                <div class="form-group">
                     <label id="cat-value-label">القيمة</label>
-                    <input type="number" id="cat-value" step="0.01" required>
+                    <input type="number" id="cat-value" step="0.01" required placeholder="10" inputmode="decimal">
                 </div>
-                <button type="submit" class="btn btn-primary w-100">حفظ</button>
+                <button type="submit" class="btn btn-primary w-100">حفظ القسم</button>
             </form>
         </div>
     </div>
@@ -166,14 +246,14 @@
     <!-- Student Modal -->
     <div id="student-modal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close" onclick="window.closeModal('student-modal')">&times;</span>
             <h2>إضافة طالب جديد</h2>
             <form id="student-form">
-                <div class="input-group">
+                <div class="form-group">
                     <label>اسم الطالب</label>
-                    <input type="text" id="student-name" required>
+                    <input type="text" id="student-name" required placeholder="مثلاً: محمد">
                 </div>
-                <button type="submit" class="btn btn-primary w-100">إضافة</button>
+                <button type="submit" class="btn btn-primary w-100">إضافة الطالب</button>
             </form>
         </div>
     </div>
@@ -181,28 +261,135 @@
     <!-- Teacher Modal -->
     <div id="teacher-modal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close" onclick="window.closeModal('teacher-modal')">&times;</span>
             <h2>إضافة معلم للمادة</h2>
             <form id="teacher-form">
                 <input type="hidden" id="current-student-id">
-                <div class="input-group">
-                    <label>اسم المعلم</label>
-                    <input type="text" id="teacher-name" required>
-                </div>
-                <div class="input-group">
+                <div class="form-group">
                     <label>المادة</label>
-                    <input type="text" id="subject-name" required>
+                    <input type="text" id="subject-name" required placeholder="مثلاً: رياضيات">
                 </div>
-                <div class="input-group">
-                    <label>سعر المعلم</label>
-                    <input type="number" id="teacher-price" required>
+                <div class="form-group">
+                    <label>اسم المعلم</label>
+                    <input type="text" id="teacher-name" required placeholder="مثلاً: مستر علي">
                 </div>
-                <div class="input-group">
-                    <label>سعر السنتر (اختياري)</label>
-                    <input type="number" id="center-price" value="0">
+                <div class="form-group">
+                    <label>سعر الحصة / الشهر</label>
+                    <input type="number" id="teacher-price" required placeholder="200" inputmode="decimal">
+                </div>
+                <div class="form-group">
+                    <label>مصاريف السنتر (اختياري)</label>
+                    <input type="number" id="center-price" placeholder="0" value="0" inputmode="decimal">
                 </div>
                 <button type="submit" class="btn btn-primary w-100">إضافة المعلم</button>
             </form>
+        </div>
+    </div>
+
+    <!-- Custom Alert Modal -->
+    <div id="custom-alert-modal" class="modal" style="z-index: 3000;">
+        <div class="modal-content modal-alert">
+            <i class="fas fa-exclamation-circle alert-icon"></i>
+            <h3 id="custom-alert-title">تنبيه</h3>
+            <p id="custom-alert-message"></p>
+            <button onclick="closeCustomAlert()" class="btn btn-primary w-100">حسناً، فهمت</button>
+        </div>
+    </div>
+
+    <!-- Custom Confirm Modal -->
+    <div id="custom-confirm-modal" class="modal" style="z-index: 3000;">
+        <div class="modal-content modal-alert">
+            <i class="fas fa-question-circle alert-icon" style="color: #ff9f43;"></i>
+            <h3>تأكيد الإجراء</h3>
+            <p id="custom-confirm-message"></p>
+            <div class="confirm-btns">
+                <button id="custom-confirm-yes" class="btn btn-danger">نعم، احذف</button>
+                <button onclick="closeCustomConfirm()" class="btn btn-secondary">إلغاء</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FULLSCREEN PANELS ===== -->
+
+    <!-- Calculator Screen -->
+    <div id="calculator-screen" class="fullscreen-panel hidden">
+        <header class="panel-header">
+            <button class="back-btn" onclick="closePanel('calculator-screen')">
+                <i class="fas fa-arrow-right"></i>
+            </button>
+            <h2 data-i18n="navCalc">الآلة الحاسبة</h2>
+            <button class="btn panel-action-btn" onclick="clearHistory()">تصفير</button>
+        </header>
+        <div class="panel-content calc-panel-content">
+            <div id="calc-history" class="calc-history">
+                <div class="calc-history-empty">لا يوجد سجل</div>
+            </div>
+            <div class="calc-display-area">
+                <div id="calc-expression" class="calc-expression"></div>
+                <div id="calc-result" class="calc-result">0</div>
+                <div class="calc-grid">
+                    <button class="calc-btn func" id="cb-ac" onclick="calcAction('AC')">AC</button>
+                    <button class="calc-btn func" onclick="calcAction('+/-')">+/-</button>
+                    <button class="calc-btn func" onclick="calcAction('DEL')"><i class="fas fa-backspace"></i></button>
+                    <button class="calc-btn op" onclick="calcAction('÷')">÷</button>
+                    <button class="calc-btn num" onclick="calcAction('7')">7</button>
+                    <button class="calc-btn num" onclick="calcAction('8')">8</button>
+                    <button class="calc-btn num" onclick="calcAction('9')">9</button>
+                    <button class="calc-btn op" onclick="calcAction('×')">×</button>
+                    <button class="calc-btn num" onclick="calcAction('4')">4</button>
+                    <button class="calc-btn num" onclick="calcAction('5')">5</button>
+                    <button class="calc-btn num" onclick="calcAction('6')">6</button>
+                    <button class="calc-btn op" onclick="calcAction('−')">−</button>
+                    <button class="calc-btn num" onclick="calcAction('1')">1</button>
+                    <button class="calc-btn num" onclick="calcAction('2')">2</button>
+                    <button class="calc-btn num" onclick="calcAction('3')">3</button>
+                    <button class="calc-btn op" onclick="calcAction('+')">+</button>
+                    <button class="calc-btn num calc-zero" onclick="calcAction('0')">0</button>
+                    <button class="calc-btn num" onclick="calcAction('.')">.</button>
+                    <button class="calc-btn op calc-eq" onclick="calcAction('=')">=</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Currency Screen -->
+    <div id="currency-screen" class="fullscreen-panel hidden">
+        <header class="panel-header">
+            <button class="back-btn" onclick="closePanel('currency-screen')">
+                <i class="fas fa-arrow-right"></i>
+            </button>
+            <h2 data-i18n="navCur">أسعار العملات</h2>
+            <button id="refresh-rates-btn" class="back-btn" onclick="fetchRates()">
+                <i class="fas fa-sync-alt"></i>
+            </button>
+        </header>
+        <div class="panel-content">
+            <!-- Converter Card -->
+            <div class="currency-converter-card">
+                <h3><i class="fas fa-exchange-alt"></i> محول العملات</h3>
+                <div class="converter-row">
+                    <input type="number" id="from-amount" value="1" oninput="convertCurrency()" inputmode="decimal">
+                    <select id="from-currency" onchange="convertCurrency()"></select>
+                </div>
+                <div class="swap-wrap">
+                    <button class="swap-btn" onclick="swapCurrencies()"><i class="fas fa-arrows-alt-v"></i></button>
+                </div>
+                <div class="converter-row">
+                    <input type="number" id="to-amount" readonly>
+                    <select id="to-currency" onchange="convertCurrency()"></select>
+                </div>
+                <div id="rate-display" class="rate-display">---</div>
+            </div>
+
+            <!-- Search -->
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="currency-search" placeholder="ابحث عن عملة..." oninput="filterCurrencies()">
+            </div>
+
+            <!-- Rate Grid -->
+            <div id="currency-status" class="currency-status"><i class="fas fa-spinner fa-spin"></i> جاري تحميل الأسعار...</div>
+            <div id="currency-grid" class="currency-grid"></div>
         </div>
     </div>
 
